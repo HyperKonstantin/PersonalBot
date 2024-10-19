@@ -10,6 +10,10 @@ def start(message : Message):
     bot.send_message(message.chat.id, f"Ботик воркает")
     houses_count_monitoring(message)
 
+@bot.message_handler(commands=["test"])
+def start(message : Message):
+    bot.send_message(message.chat.id, f"всё ок")
+    houses_count_monitoring(message)
 
 def houses_count_monitoring(message : Message):
     generator = selenium_parser()
