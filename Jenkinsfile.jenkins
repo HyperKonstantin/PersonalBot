@@ -11,20 +11,20 @@ pipeline {
     stages {
         stage("Info") {
             steps {
-                whoami
-                pwd
-                ls -la
+                sh 'whoami'
+                sh 'pwd'
+                sh 'ls -la'
             }
         }
         stage("build image") {
             steps {
-                docker rm -f bot
-                docker build -t bot .
+                sh 'docker rm -f bot'
+                sh 'docker build -t bot .'
             }
         }
         stage("deploy") {
             steps {
-                docker run -d bot
+                sh 'docker run -d bot'
             }
         }
     }
