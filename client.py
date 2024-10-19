@@ -12,8 +12,7 @@ def start(message : Message):
 
 @bot.message_handler(commands=["test"])
 def start(message : Message):
-    bot.send_message(message.chat.id, f"всё ок")
-    houses_count_monitoring(message)
+    bot.send_message(message.chat.id, f"всё норм")
 
 def houses_count_monitoring(message : Message):
     generator = selenium_parser()
