@@ -12,5 +12,6 @@ RUN pip install telebot
 RUN pip install selenium
 RUN pip install beautifulsoup4
 RUN pip install webdriver-manager
+RUN pip install schedule
 
 CMD ["python3", "main.py"]

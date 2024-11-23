@@ -9,15 +9,21 @@ pipeline {
     }
 
     stages {
+        stage("kill old container") {
+            steps {
+                sh 'docker stop personal_bot'
+                sh 'docker rm personal_bot'
+            }
+        }
         stage("build image") {
             steps {
-                sh 'docker rm -f bot'
-                sh 'docker build -t bot .'
+                sh 'docker image rm personal_bot'
+                sh 'docker build -t personal_bot .'
             }
         }
         stage("deploy") {
             steps {
-                sh 'docker run -d bot'
+                sh 'docker run --name personal_bot -d personal_bot'
             }
         }
     }
