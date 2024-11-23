@@ -9,13 +9,6 @@ pipeline {
     }
 
     stages {
-        stage("Info") {
-            steps {
-                sh 'whoami'
-                sh 'pwd'
-                sh 'ls -la'
-            }
-        }
         stage("build image") {
             steps {
                 sh 'docker rm -f bot'
